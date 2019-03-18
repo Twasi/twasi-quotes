@@ -15,7 +15,6 @@ public class QuotesUserPlugin extends TwasiUserPlugin {
         commands.add(new QuotesCommand(this));
     }
 
-    @NotNull
     @Override
     public List<TwasiPluginCommand> getCommands() {
         return commands;
