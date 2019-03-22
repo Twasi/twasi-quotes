@@ -4,4 +4,4 @@ author: "Twasi Team"
 version: 1.0
 description: "Always remember your favorite quotes!"
 commands:
-  - quotes
+  - quote

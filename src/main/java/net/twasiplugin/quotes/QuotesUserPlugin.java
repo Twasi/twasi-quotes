@@ -2,7 +2,6 @@ package net.twasiplugin.quotes;
 
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
