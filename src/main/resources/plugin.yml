@@ -8,3 +8,15 @@ commands:
 permissions:
   - net.twasi.quotes.read
   - net.twasi.quotes.manage
+
+api: |
+  type Quotes {
+    publicAll(twitchId: String): [Quote]
+  }
+
+  type Quote {
+    id: String,
+    numId: Int,
+    content: String,
+    createdAt: String
+  }
