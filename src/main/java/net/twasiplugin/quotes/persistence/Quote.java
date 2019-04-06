@@ -7,6 +7,8 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Reference;
 
+import java.util.Date;
+
 @Entity(value = "net.twasiplugin.quotes", noClassnameStored = true)
 public class Quote extends BaseEntity {
     /**
@@ -32,6 +34,11 @@ public class Quote extends BaseEntity {
     private String content;
 
     /**
+     * The date
+     */
+    private Date createdAt;
+
+    /**
      * Creates an empty quote. Used by database.
      */
     public Quote() {}
@@ -40,6 +47,7 @@ public class Quote extends BaseEntity {
         this.user = user;
         this.numId = numId;
         this.content = content;
+        this.createdAt = new Date();
     }
 
     @Override
@@ -73,5 +81,13 @@ public class Quote extends BaseEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

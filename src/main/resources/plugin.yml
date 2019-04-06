@@ -5,3 +5,6 @@ version: 1.0
 description: "Always remember your favorite quotes!"
 commands:
   - quote
+permissions:
+  - net.twasi.quotes.read
+  - net.twasi.quotes.manage
