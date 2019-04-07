@@ -6,6 +6,7 @@ import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasi.core.services.ServiceRegistry;
 import net.twasi.core.services.providers.DataService;
+import net.twasi.twitchapi.TwitchAPI;
 import net.twasiplugin.quotes.persistence.Quote;
 import net.twasiplugin.quotes.persistence.QuotesRepository;
 
@@ -81,18 +82,20 @@ public class QuotesCommand extends TwasiPluginCommand {
 
                     int id = Integer.valueOf(commandEvent.getArgs().get(1));
 
-                    String newContent = commandEvent.getArgsAsOne().split(" ", 2)[1];
+                    String newContent = commandEvent.getArgsAsOne().split(" ", 3)[2];
 
                     repo.editByNumId(user, id, newContent);
 
-
+                    outputQuote(commandEvent, repo.getByNumId(user, id));
                 }
 
                 // Create
                 if (commandEvent.getArgs().get(0).equalsIgnoreCase("add")) {
-                    String content = commandEvent.getArgsAsOne().substring(2);
+                    String content = commandEvent.getArgsAsOne().split(" ", 2)[1];
 
-                    String id = repo.create(user, content);
+                    String game = TwitchAPI.kraken().channels().withAuth(user.getTwitchAccount().toAuthContext()).updateChannel(null, null).getGame();
+
+                    String id = repo.create(user, content, game, commandEvent.getSender());
 
                     if (id == null) {
                         throw new RuntimeException("Failed to create quote");
@@ -110,6 +113,8 @@ public class QuotesCommand extends TwasiPluginCommand {
                 quote.getContent(),
                 quote.getUser().getTwitchAccount().getDisplayName(),
                 format.format(quote.getCreatedAt()),
+                quote.getGame(),
+                quote.getReporter().getDisplayName(),
                 quote.getNumId()
         ));
     }

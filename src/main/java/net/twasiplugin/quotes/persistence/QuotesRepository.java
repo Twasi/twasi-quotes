@@ -1,6 +1,7 @@
 package net.twasiplugin.quotes.persistence;
 
 import net.twasi.core.database.lib.Repository;
+import net.twasi.core.database.models.TwitchAccount;
 import net.twasi.core.database.models.User;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.query.Query;
@@ -49,7 +50,7 @@ public class QuotesRepository extends Repository<Quote> {
         return quotes.get(0);
     }
 
-    public String create(User user, String content) {
+    public String create(User user, String content, String game, TwitchAccount reporter) {
         // Generate new numid
         List<Quote> highestId = store.createQuery(Quote.class)
                 .field("user").equal(user)
@@ -62,7 +63,7 @@ public class QuotesRepository extends Repository<Quote> {
             numId = highestId.get(0).getNumId() + 1;
         }
 
-        Quote q = new Quote(user, numId, content);
+        Quote q = new Quote(user, numId, content, game, reporter);
         store.save(q);
 
         return getByNumId(user, numId).getId().toString();
@@ -100,7 +101,7 @@ public class QuotesRepository extends Repository<Quote> {
         store.delete(quote);
         return true;
     }
-    public boolean deleteById(User user, int numId) {
+    public boolean deleteByNumId(User user, int numId) {
         Quote quote = getByNumId(user, numId);
         return delete(user, quote.getId().toString());
     }

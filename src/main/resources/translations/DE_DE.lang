@@ -1,10 +1,10 @@
-quotes.none=Leider sind derzeit keine Zitate vorhanden. Zeit, etwas lustiges zu sagen! Ein Zitat wird erstellt durch !quote [Zitat].
+quotes.none=Leider sind derzeit keine Zitate vorhanden. Zeit, etwas lustiges zu sagen! Ein Zitat wird erstellt durch !quote add [Zitat]. PogChamp
 
 quotes.notfound=Das Zitat #%s existiert nicht BibleThump
 
 quotes.numberformat=Die Nummer des Zitats muss eine ganze Zahl sein. Zum Beispiel 7.
 
-quotes.output="%s", %s am %s - #%s
+quotes.output="%s", %s am %s in %s von %s - #%s
 quotes.output.dateformat=dd.mm.yyyy hh:mm
 
-quotes.edit.syntax=Bitte nutze das folgende Format: !quote edit #7 Ein interessantes Zitat.
+quotes.edit.syntax=Bitte nutze das folgende Format: !quote edit 7 Ein interessantes Zitat.

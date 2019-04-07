@@ -1,6 +1,7 @@
 package net.twasiplugin.quotes.persistence;
 
 import net.twasi.core.database.models.BaseEntity;
+import net.twasi.core.database.models.TwitchAccount;
 import net.twasi.core.database.models.User;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
@@ -39,15 +40,27 @@ public class Quote extends BaseEntity {
     private Date createdAt;
 
     /**
+     * The game that was played
+     */
+    private String game;
+
+    /**
+     * Who created the quote?
+     */
+    private TwitchAccount reporter;
+
+    /**
      * Creates an empty quote. Used by database.
      */
     public Quote() {}
 
-    public Quote(User user, int numId, String content) {
+    public Quote(User user, int numId, String content, String game, TwitchAccount reporter) {
         this.user = user;
         this.numId = numId;
         this.content = content;
         this.createdAt = new Date();
+        this.game = game;
+        this.reporter = reporter;
     }
 
     @Override
@@ -89,5 +102,21 @@ public class Quote extends BaseEntity {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getGame() {
+        return game;
+    }
+
+    public void setGame(String game) {
+        this.game = game;
+    }
+
+    public TwitchAccount getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(TwitchAccount reporter) {
+        this.reporter = reporter;
     }
 }

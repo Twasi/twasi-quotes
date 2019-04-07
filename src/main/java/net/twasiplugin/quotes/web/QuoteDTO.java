@@ -25,4 +25,12 @@ public class QuoteDTO {
         return entity.getCreatedAt().toString();
     }
 
+    public String getReporter() {
+        return entity.getReporter().getDisplayName();
+    }
+
+    public String getGame() {
+        return entity.getGame();
+    }
+
 }
