@@ -4,6 +4,7 @@ import net.twasi.core.database.models.User;
 import net.twasi.core.database.repositories.UserRepository;
 import net.twasi.core.services.ServiceRegistry;
 import net.twasi.core.services.providers.DataService;
+import net.twasi.core.services.providers.DatabaseService;
 import net.twasiplugin.quotes.persistence.QuotesRepository;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class QuotesDTO {
         this.user = user;
     }
 
-    public List<QuoteDTO> getPublicAll(String twitchId) {
-        User user = ServiceRegistry.get(DataService.class).get(UserRepository.class).getByTwitchId(twitchId);
+    public List<QuoteDTO> getPublicAll(String name) {
+        User user = ServiceRegistry.get(DatabaseService.class).getStore().createQuery(User.class).field("twitchAccount.userName").equal(name).get();
 
         if (user == null) return null;
 

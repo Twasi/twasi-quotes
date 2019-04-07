@@ -18,7 +18,7 @@ public class QuotesCommand extends TwasiPluginCommand {
     private TwasiUserPlugin plugin;
     private Random rand = new Random();
 
-    private SimpleDateFormat format = new SimpleDateFormat(getTranslation("quotes.output.dateformat"));
+    private SimpleDateFormat format;
 
     QuotesCommand(TwasiUserPlugin twasiUserPlugin) {
         super(twasiUserPlugin);
@@ -28,6 +28,7 @@ public class QuotesCommand extends TwasiPluginCommand {
     @Override
     public void process(TwasiCustomCommandEvent commandEvent) {
         User user = commandEvent.getStreamer().getUser();
+        format = new SimpleDateFormat(getTranslation("quotes.output.dateformat"));
 
         if (!commandEvent.hasArgs()) {
             if (!user.hasPermission(commandEvent.getSender(), "net.twasi.quotes.read")) {

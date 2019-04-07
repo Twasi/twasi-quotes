@@ -11,7 +11,7 @@ permissions:
 
 api: |
   type Quotes {
-    publicAll(twitchId: String): [Quote]
+    publicAll(name: String): [Quote]
   }
 
   type Quote {
