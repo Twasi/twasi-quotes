@@ -9,7 +9,7 @@ quotes.output.dateformat=dd.mm.yyyy hh:mm
 
 quotes.add.syntax=Um ein Zitat hinzuzufügen, nutze !quote add [Zitat]. SeemsGood
 
-quotes.edit.syntax=Bitte nutze das folgende Format: !quote edit 7 Ein interessantes Zitat.
+quotes.edit.syntax=Bitte nutze das folgende Format: !quote edit 7 Ein interessantes Zitat LUL.
 
 quotes.del.syntax=Um ein Zitat zu löschen, nutze !quote add [Nummer]. SeemsGood
 quotes.del.success=Das Zitat #%s wurde erfolgreich gelöscht. SeemsGood
