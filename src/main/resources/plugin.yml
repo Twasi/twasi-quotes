@@ -18,5 +18,7 @@ api: |
     id: String,
     numId: Int,
     content: String,
-    createdAt: String
+    createdAt: String,
+    game: String,
+    reporter: String
   }

@@ -91,6 +91,10 @@ public class QuotesCommand extends TwasiPluginCommand {
 
                 // Create
                 if (commandEvent.getArgs().get(0).equalsIgnoreCase("add")) {
+                    if (commandEvent.getArgs().size() < 2) {
+                        commandEvent.reply(getTranslation("quotes.add.syntax"));
+                    }
+
                     String content = commandEvent.getArgsAsOne().split(" ", 2)[1];
 
                     String game = TwitchAPI.kraken().channels().withAuth(user.getTwitchAccount().toAuthContext()).updateChannel(null, null).getGame();
@@ -102,6 +106,27 @@ public class QuotesCommand extends TwasiPluginCommand {
                     }
 
                     outputQuote(commandEvent, repo.getById(user, id));
+                }
+
+                // Delete
+                if (commandEvent.getArgs().get(0).equalsIgnoreCase("del")) {
+                    if (commandEvent.getArgs().size() != 2) {
+                        commandEvent.reply(getTranslation("quotes.del.syntax"));
+                        return;
+                    }
+
+                    int id = Integer.valueOf(commandEvent.getArgs().get(1));
+
+                    if (id == 0) {
+                        commandEvent.reply(getTranslation("quotes.del.numbersyntax"));
+                        return;
+                    }
+
+                    if (repo.deleteByNumId(user, id)) {
+                        commandEvent.reply(getTranslation("quotes.del.success", id));
+                    } else {
+                        commandEvent.reply(getTranslation("quotes.del.notfound", id));
+                    }
                 }
             }
         }

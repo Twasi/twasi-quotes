@@ -7,4 +7,10 @@ quotes.numberformat=Only numbers are allowed. For example, 7.
 quotes.output="%s", %s on %s in %s reported by %s - #%s
 quotes.output.dateformat=dd.mm.yyyy hh:mm
 
+quotes.add.syntax=To add a quote, use !quote add [Quote]. SeemsGood
+
 quotes.edit.syntax=Please use the following format: !quote edit 7 An interesting quote.
+
+quotes.del.syntax=To delete a quote, use !quote del [Number]. SeemsGood
+quotes.del.success=The quote #%s was deleted successfully. SeemsGood
+quotes.del.notfound=There was not quote found matching #%s. BibleThump

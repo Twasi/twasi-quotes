@@ -7,4 +7,10 @@ quotes.numberformat=Die Nummer des Zitats muss eine ganze Zahl sein. Zum Beispie
 quotes.output="%s", %s am %s in %s von %s - #%s
 quotes.output.dateformat=dd.mm.yyyy hh:mm
 
+quotes.add.syntax=Um ein Zitat hinzuzufügen, nutze !quote add [Zitat]. SeemsGood
+
 quotes.edit.syntax=Bitte nutze das folgende Format: !quote edit 7 Ein interessantes Zitat.
+
+quotes.del.syntax=Um ein Zitat zu löschen, nutze !quote add [Nummer]. SeemsGood
+quotes.del.success=Das Zitat #%s wurde erfolgreich gelöscht. SeemsGood
+quotes.del.notfound=Es wurde kein Zitat mit der Nummer #%s gefunden. BibleThump
