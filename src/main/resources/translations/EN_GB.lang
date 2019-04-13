@@ -5,7 +5,7 @@ quotes.notfound=The quote #%s doesn't exist BibleThump
 quotes.numberformat=Only numbers are allowed. For example, 7.
 
 quotes.output="%s", %s on %s in %s reported by %s - #%s
-quotes.output.dateformat=dd.mm.yyyy hh:mm
+quotes.output.dateformat=dd.MM.yyyy hh:mm
 
 quotes.add.syntax=To add a quote, use !quote add [Quote]. SeemsGood
 

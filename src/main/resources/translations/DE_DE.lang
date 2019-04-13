@@ -5,7 +5,7 @@ quotes.notfound=Das Zitat #%s existiert nicht BibleThump
 quotes.numberformat=Die Nummer des Zitats muss eine ganze Zahl sein. Zum Beispiel 7.
 
 quotes.output="%s", %s am %s in %s von %s - #%s
-quotes.output.dateformat=dd.mm.yyyy hh:mm
+quotes.output.dateformat=dd.MM.yyyy hh:mm
 
 quotes.add.syntax=Um ein Zitat hinzuzufügen, nutze !quote add [Zitat]. SeemsGood
 
